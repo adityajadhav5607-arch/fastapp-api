@@ -27,3 +27,7 @@ async def compute(body: WorkIn):
     async with _sem:
         await asyncio.sleep(0.05)  # pretend work
         return {"input": body.x, "result": body.x ** 2}
+
+from mangum import Mangum
+handler = Mangum(app)
+
